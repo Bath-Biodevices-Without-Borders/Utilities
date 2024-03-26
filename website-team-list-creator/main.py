@@ -30,10 +30,13 @@ def main():
 
   df.fillna("", inplace=True)
 
+  counter = 0
   for index, row in df.iterrows():
     renameImage(row)
     member, teams = createMember(row)
     for team in teams:
+      member['id'] = counter
+      counter += 1
       jsonData[team].append(member)
 
   with open("./website-team-list-creator/team_details.json", "w") as jsonFile:
