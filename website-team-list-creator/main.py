@@ -33,9 +33,9 @@ def main():
   counter = 0
   for index, row in df.iterrows():
     renameImage(row)
-    member, teams = createMember(row)
+    teams = getMemberTeams(row)
     for team in teams:
-      member['id'] = counter
+      member = createMember(row, idCounter=counter)
       counter += 1
       jsonData[team].append(member)
 
@@ -43,7 +43,12 @@ def main():
     json.dump(jsonData, jsonFile, indent=4)
 
 
-def createMember(row):
+def getMemberTeams(row):
+  teams = row["Teams"]
+  teams = teams.split(";")
+  return teams
+
+def createMember(row, idCounter):
   """
   Create a member dictionary from a given row of data.
 
@@ -58,7 +63,7 @@ def createMember(row):
 
   """
   member = {
-    "id": row["Id"],
+    "id": idCounter,
     "name": row["Name"],
     "email": row["Email"],
     "course": row["Course"],
@@ -84,7 +89,7 @@ def createMember(row):
       "lead": isLead(row[f"{team} Role"]),
     }
     member['roles'].append(role)
-  return member, teams
+  return member
 
 
 def renameImage(row):
