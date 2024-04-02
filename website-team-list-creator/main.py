@@ -2,10 +2,6 @@ import pandas as pd
 import json
 import os
 
-
-import pandas as pd
-import json
-
 def main():
   """
   Reads data from an Excel file, processes it, and generates a JSON file with team details.
@@ -16,9 +12,12 @@ def main():
   Returns:
     None
   """
-  df = pd.read_excel("./website-team-list-creator/Website-Content.xlsx")
+  createJSON()
 
-  jsonData = {
+def createJSON():
+    df = pd.read_excel("./Website-Content.xlsx")
+
+    jsonData = {
     "Management": [],
     "Hardware": [],
     "Sensors": [],
@@ -28,19 +27,19 @@ def main():
     "Social": []
   }
 
-  df.fillna("", inplace=True)
+    df.fillna("", inplace=True)
 
-  counter = 0
-  for index, row in df.iterrows():
-    renameImage(row)
-    teams = getMemberTeams(row)
-    for team in teams:
-      member = createMember(row, idCounter=counter)
-      counter += 1
-      jsonData[team].append(member)
+    counter = 0
+    for index, row in df.iterrows():
+      renameImage(row)
+      teams = getMemberTeams(row)
+      for team in teams:
+        member = createMember(row, idCounter=counter)
+        counter += 1
+        jsonData[team].append(member)
 
-  with open("./website-team-list-creator/team_details.json", "w") as jsonFile:
-    json.dump(jsonData, jsonFile, indent=4)
+    with open("./team_details.json", "w") as jsonFile:
+      json.dump(jsonData, jsonFile, indent=4)
 
 
 def getMemberTeams(row):
@@ -106,7 +105,7 @@ def renameImage(row):
   username = email.split("@")[0]
   oldImage = row["Image"].split("/")[-1].replace("%20", " ")
   fileExists = os.path.exists(
-    f"./website-team-list-creator/images/{oldImage}"
+    f"./images/{oldImage}"
   )
   if not fileExists:
     print(f"Image {oldImage} does not exist for {row['Name']}")
@@ -115,8 +114,8 @@ def renameImage(row):
     suffix = oldImage.split(".")[-1]
     newImage = f"{username}.{suffix.lower()}"
     os.rename(
-      f"./website-team-list-creator/images/{oldImage}",
-      f"./website-team-list-creator/images/{newImage}"
+      f"./images/{oldImage}",
+      f"./images/{newImage}"
     )
     row["Image"] = newImage
 
