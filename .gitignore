@@ -161,4 +161,5 @@ cython_debug/
 
 website-team-list-creator/images
 website-team-list-creator/team_details.json
-website-team-list-creator/Website-Content.xlsx
+website-team-list-creator/*.xlsx
+website-team-list-creator/repository/*
