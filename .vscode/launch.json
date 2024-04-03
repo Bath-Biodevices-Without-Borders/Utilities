@@ -11,6 +11,13 @@
       "program": "../website-team-list-creator/main.py",
       "console": "integratedTerminal",
       "cwd": "${workspaceFolder}/website-team-list-creator",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/website-team-list-creator"
+      },
+      "args": [
+        "GIT REPO URL",
+        "Website Content.xlsx",
+      ]
     }
   ]
 }
