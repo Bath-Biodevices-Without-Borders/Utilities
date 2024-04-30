@@ -160,12 +160,12 @@ def createMember(row):
     role = {
       "role": row[f"{team} Role"],
       "team": team,
-      "lead": isLead(row[f"{team} Role"]),
+      "lead": isLead(row[f"{team} Role"], team),
     }
     member['roles'].append(role)
   return member
 
-def isLead(role):
+def isLead(role, teamName):
   """
   Checks if the given role is a lead role.
 
@@ -178,10 +178,10 @@ def isLead(role):
   if isinstance(role, str) and "Head of" in role:
     return True
   
-  if isinstance(role, str) and "Lead" in role:
+  if isinstance(role, str) and "Director" in role:
     return True
   
-  if isinstance(role, str) and "Managing Director" in role:
+  if isinstance(role, str) and "Lead" in role and teamName != "Management":
     return True
   
   return False
