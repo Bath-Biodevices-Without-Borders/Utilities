@@ -56,3 +56,5 @@ def getArguments():
 
 if __name__ == "__main__":
   main()
+
+#python C:\Users\Jamie\Documents\GitHub\Utilities\website-team-list-creator\main.py https://github.com/Bath-Biodevices-Without-Borders/Website.git C:\Users\Jamie\OneDrive - University of Bath\Software\Website\WebsiteContent.xlsx

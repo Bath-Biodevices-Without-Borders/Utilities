@@ -49,7 +49,7 @@ def readJSON():
   return existingMembers
 
 def createJSON(excelFileName: str, prevMembers: dict = None):
-    df = pd.read_excel(f"./{excelFileName}")
+    df = pd.read_excel(excelFileName)
     df.fillna("", inplace=True)
 
     members, memberEmails = createMembersList(df)
