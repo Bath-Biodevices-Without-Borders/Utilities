@@ -71,57 +71,57 @@ def createMembersList(df):
     return members, memberEmails
 
 def renameImage(row):
-  """
-  Renames the image file associated with a given row in the team list.
+    """
+    Renames the image file associated with a given row in the team list.
 
-  Args:
-    row (dict): A dictionary representing a row in the team list.
+    Args:
+      row (dict): A dictionary representing a row in the team list.
 
-  Returns:
-    None
-  """
+    Returns:
+      None
+    """
+    oldImage = row["Image"]
+    if oldImage == "":
+        return
 
-  oldImage = row["Image"]
-  if oldImage == "":
-    return
-  
+    oldImage = oldImage.split("/")[-1].replace("%20", " ")
+    oldImageExists = os.path.exists(f"./images/{oldImage}")
 
-  oldImage = row["Image"].split("/")[-1].replace("%20", " ")
-  oldImageExists = os.path.exists(f"./images/{oldImage}")
+    email = row["Email"]
+    username = email.split("@")[0]
+    newImage = f"{username}.png"
+    newImageExists = os.path.exists(f"./images/{newImage}")
 
-  email = row["Email"]
-  username = email.split("@")[0]
-  newImage = f"{username}.png"
-  newImageExists = os.path.exists(f"./images/{newImage}")
-
-  if (not oldImageExists) and (not newImageExists):
-    raise FileNotFoundError(f"Image {oldImage} does not exist for {row['Name']}")
-  elif newImageExists:
-    row["Image"] = newImage
-    return
-  else:
-    # Load the image
-    # Load the image
-    img = Image.open(f"./images/{oldImage}")
-
-    # Scale the image down
-    max_dimension = 720
-    width, height = img.size
-    if width > height:
-      new_width = max_dimension
-      new_height = int(height * (max_dimension / width))
+    if not oldImageExists and not newImageExists:
+        # If neither the old image nor the new image exists, log the error but continue
+        print(f"Warning: Image {oldImage} does not exist for {row['Name']}. Skipping this member.")
+        return  # Skip the image renaming, no need to raise an error here.
+    elif newImageExists:
+        row["Image"] = newImage
     else:
-      new_height = max_dimension
-      new_width = int(width * (max_dimension / height))
-    img = img.resize((new_width, new_height))
-    
-    # Save the image with the new name
-    img.save(f"./images/{newImage}", "PNG")
-    # Update the image name in the row
-    row["Image"] = newImage
-    # Remove the old image file
-    os.remove(f"./images/{oldImage}")
+        # Resize the old image and save it with a new name
+        img = Image.open(f"./images/{oldImage}")
 
+        # Scale the image down
+        max_dimension = 720
+        width, height = img.size
+        if width > height:
+            new_width = max_dimension
+            new_height = int(height * (max_dimension / width))
+        else:
+            new_height = max_dimension
+            new_width = int(width * (max_dimension / height))
+        img = img.resize((new_width, new_height))
+
+        # Save the image with the new name
+        img.save(f"./images/{newImage}", "PNG")
+        # Update the image name in the row
+        row["Image"] = newImage
+        # Remove the old image file
+        os.remove(f"./images/{oldImage}")
+
+      
+      
 def createMember(row):
   """
   Create a member dictionary from a given row of data.
