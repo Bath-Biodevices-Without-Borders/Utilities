@@ -51,9 +51,9 @@
                     "lead": false
                 },
                 {
-                    "role": "Head of Software",
+                    "role": "Former Head of Software",
                     "team": "Software",
-                    "lead": true
+                    "lead": false
                 }
             ]
         },
@@ -91,9 +91,9 @@
             "isLegacy": true,
             "roles": [
                 {
-                    "role": "Head of Hardware",
+                    "role": "Former Head of Hardware",
                     "team": "Hardware",
-                    "lead": true
+                    "lead": false
                 }
             ]
         }
@@ -141,6 +141,11 @@
                     "role": "Event Coordinator",
                     "team": "Outreach",
                     "lead": false
+                }
+                {
+                    "role": "Head of Finance",
+                    "team": "Finance",
+                    "lead": true
                 }
             ]
         },
@@ -190,9 +195,9 @@
                     "lead": false
                 },
                 {
-                    "role": "Head of Software",
+                    "role": "Former Head of Software",
                     "team": "Software",
-                    "lead": true
+                    "lead": false
                 }
             ]
         },
@@ -205,7 +210,7 @@
             "description": "I am a 2nd year Mathematics student and have recently joined Bath Biodevices without Borders. I am excited to get involved with the project and learn in a welcoming team environment!",
             "image": "https://computingservices-my.sharepoint.com/personal/jd2605_bath_ac_uk/Documents/Apps/Microsoft%20Forms/BWB%20survey%20for%20website/Question%201/IMG_8829_Isabelle%20Whittle.jpeg",
             "startYear": 2022,
-            "endYear": 2024,
+            "endYear": 2025,
             "legacy": false,
             "isLegacy": true,
             "roles": [
@@ -232,9 +237,9 @@
             "isLegacy": true,
             "roles": [
                 {
-                    "role": "Head of Finance",
+                    "role": "Former Head of Finance",
                     "team": "Finance",
-                    "lead": true
+                    "lead": false
                 }
             ]
         }
@@ -336,9 +341,9 @@
                     "lead": false
                 },
                 {
-                    "role": "Head of Software",
+                    "role": "Former Head of Software",
                     "team": "Software",
-                    "lead": true
+                    "lead": false
                 }
             ]
         }

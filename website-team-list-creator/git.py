@@ -79,6 +79,8 @@ def moveDataToRepo() -> None:
       "src",
       "content",
       "team_details.json")
+ 
+
   os.remove(jsonFilepath)
   shutil.copy("team_details.json", jsonFilepath)
 
