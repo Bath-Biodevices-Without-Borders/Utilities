@@ -134,8 +134,9 @@ def createMember(row):
 
   Raises:
     ValueError: If a role is empty for a team.
-
+  
   """
+  print(row["Leave Date"])
   member = {
     "id": 0,
     "name": row["Name"],
