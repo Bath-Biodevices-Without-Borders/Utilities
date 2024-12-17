@@ -8,10 +8,10 @@
             "link": "https://www.linkedin.com/in/vrinda-raninga-959459249",
             "description": "I am a 3rd year student studying Chemical Engineering who has been a part of Bath Biodevices without Borders (and its iterations) since my first year. I have thoroughly enjoyed watching the team grow to what it is today and am excited for it to continue when I leave too. ",
             "image": "",
-            "startYear": 2022,
+            "startYear": 2021,
             "endYear": 2024,
             "legacy": false,
-            "isLegacy": true,
+            "isLegacy": false,
             "roles": [
                 {
                     "role": "Business Director",
@@ -34,8 +34,8 @@
             "course": "MEng Computer Systems Engineering",
             "link": "https://george-madeley-portfolio.co.uk/",
             "description": "As a passionate software developer, I delve into the realms of full-stack web development, machine learning, and game development. You\u2019ll often find me immersed in learning new programming languages, meticulously documenting code, or contributing to exciting new projects.",
-            "image": "https://computingservices-my.sharepoint.com/personal/jd2605_bath_ac_uk/Documents/Apps/Microsoft%20Forms/BWB%20survey%20for%20website/Question%201/gm768.png",
-            "startYear": 2022,
+            "image": "https://computingservices-my.sharepoint.com/personal/gm768_bath_ac_uk/Documents/Apps/Microsoft%20Forms/Website%20Content/Question/20230912_225706_George%20Madeley.jpg",
+            "startYear": 2021,
             "endYear": 2024,
             "legacy": true,
             "isLegacy": true,
@@ -51,9 +51,9 @@
                     "lead": false
                 },
                 {
-                    "role": "Former Head of Software",
+                    "role": "Head of Software",
                     "team": "Software",
-                    "lead": false
+                    "lead": true
                 }
             ]
         },
@@ -64,8 +64,8 @@
             "course": "BEng Computer Systems Engineering",
             "link": "https://www.linkedin.com/in/tabitha-hirst-062a292b8",
             "description": "I am a second year Computer Systems student and I love both hardware and software. I also enjoy product design and film. Hopefully I'll be back in 2025 after my placement year!",
-            "image": "https://computingservices-my.sharepoint.com/personal/jd2605_bath_ac_uk/Documents/Apps/Microsoft%20Forms/BWB%20survey%20for%20website/Question%201/th2021.png",
-            "startYear": 2022,
+            "image": "https://computingservices-my.sharepoint.com/personal/gm768_bath_ac_uk/Documents/Apps/Microsoft%20Forms/Website%20Content/Question/IMG-20240131-WA0021_Tabitha%20Hirst.jpg",
+            "startYear": 2021,
             "endYear": 2024,
             "legacy": true,
             "isLegacy": true,
@@ -85,15 +85,15 @@
             "link": "https://www.linkedin.com/in/laniobikoya",
             "description": "",
             "image": "",
-            "startYear": 2022,
+            "startYear": 2021,
             "endYear": 2024,
             "legacy": true,
             "isLegacy": true,
             "roles": [
                 {
-                    "role": "Former Head of Hardware",
+                    "role": "Head of Hardware",
                     "team": "Hardware",
-                    "lead": false
+                    "lead": true
                 }
             ]
         }
@@ -107,7 +107,7 @@
             "link": "https://www.linkedin.com/in/olivia-smith-632397210/",
             "description": "I\u2019m a biology student who enjoys microbiology, climbing, occasionally running and trying to make sense of what these engineers say in the weekly meetings.",
             "image": "",
-            "startYear": 2022,
+            "startYear": 1905,
             "endYear": 2024,
             "legacy": false,
             "isLegacy": true,
@@ -126,7 +126,7 @@
             "course": "BSc(Hons) Biology with Professional Placement",
             "link": "https://www.linkedin.com/in/helena-woodvine/",
             "description": "Being a highly motivated and inquisitive individual I am hugely enjoying contributing towards Biodevices without Borders' applied learning project. Eager to pursue a Biotechnology-orientated career addressing UN STGs, aiding in the development and testing of electrochemical sensors for different water safety parameters is incredibly insightful. Further fuelling my interest in diagnostic lab-on-chip biosensing technology, I'm integrated across teams to have a comprehensive understanding of the processes involved to allow the development of these devices. ",
-            "image": "https://computingservices-my.sharepoint.com/personal/jd2605_bath_ac_uk/Documents/Apps/Microsoft%20Forms/BWB%20survey%20for%20website/Question%201/hw2435.png",
+            "image": "https://computingservices-my.sharepoint.com/personal/gm768_bath_ac_uk/Documents/Apps/Microsoft%20Forms/Website%20Content/Question/Blue%20walled%20BWB%20website_Helena%20Woodvine.jpg",
             "startYear": 2022,
             "endYear": 2024,
             "legacy": false,
@@ -142,11 +142,6 @@
                     "team": "Outreach",
                     "lead": false
                 }
-                {
-                    "role": "Head of Finance",
-                    "team": "Finance",
-                    "lead": true
-                }
             ]
         },
         {
@@ -156,8 +151,8 @@
             "course": "MEng Integrated Mechanical and Electrical Engineering ",
             "link": "https://www.linkedin.com/in/tara-mckenna-721529203?trk=contact-info",
             "description": "A member of the Sensors team, working primarily on pH sensing. ",
-            "image": "https://computingservices-my.sharepoint.com/personal/jd2605_bath_ac_uk/Documents/Apps/Microsoft%20Forms/BWB%20survey%20for%20website/Question%201/tm907.png",
-            "startYear": 2022,
+            "image": "https://computingservices-my.sharepoint.com/personal/gm768_bath_ac_uk/Documents/Apps/Microsoft%20Forms/Website%20Content/Question/53CDC751-B115-46ED-BE7F-C890C1EE8B8C_Tara%20Mckenna.jpeg",
+            "startYear": 2021,
             "endYear": 2024,
             "legacy": true,
             "isLegacy": true,
@@ -178,8 +173,8 @@
             "course": "MEng Computer Systems Engineering",
             "link": "https://george-madeley-portfolio.co.uk/",
             "description": "As a passionate software developer, I delve into the realms of full-stack web development, machine learning, and game development. You\u2019ll often find me immersed in learning new programming languages, meticulously documenting code, or contributing to exciting new projects.",
-            "image": "https://computingservices-my.sharepoint.com/personal/jd2605_bath_ac_uk/Documents/Apps/Microsoft%20Forms/BWB%20survey%20for%20website/Question%201/gm768.png",
-            "startYear": 2022,
+            "image": "https://computingservices-my.sharepoint.com/personal/gm768_bath_ac_uk/Documents/Apps/Microsoft%20Forms/Website%20Content/Question/20230912_225706_George%20Madeley.jpg",
+            "startYear": 2021,
             "endYear": 2024,
             "legacy": true,
             "isLegacy": true,
@@ -195,9 +190,9 @@
                     "lead": false
                 },
                 {
-                    "role": "Former Head of Software",
+                    "role": "Head of Software",
                     "team": "Software",
-                    "lead": false
+                    "lead": true
                 }
             ]
         },
@@ -209,10 +204,10 @@
             "link": "https://www.linkedin.com/in/isabelle-whittle-9b3128330?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app ",
             "description": "I am a 2nd year Mathematics student and have recently joined Bath Biodevices without Borders. I am excited to get involved with the project and learn in a welcoming team environment!",
             "image": "https://computingservices-my.sharepoint.com/personal/jd2605_bath_ac_uk/Documents/Apps/Microsoft%20Forms/BWB%20survey%20for%20website/Question%201/IMG_8829_Isabelle%20Whittle.jpeg",
-            "startYear": 2022,
-            "endYear": 2025,
+            "startYear": 2024,
+            "endYear": 2024,
             "legacy": false,
-            "isLegacy": true,
+            "isLegacy": false,
             "roles": [
                 {
                     "role": "Software Engineer",
@@ -231,15 +226,15 @@
             "link": "https://www.linkedin.com/in/daniel-light-646bb72b8",
             "description": "Possesses experience in programming, circuit design, and finance management. As Head of Finance, created a finance spreadsheet for the team, implemented an autonomous notification system to aid future cohorts in finding and applying for grants, and supported team members throughout the course of the year.",
             "image": "",
-            "startYear": 2022,
+            "startYear": 2021,
             "endYear": 2024,
             "legacy": true,
             "isLegacy": true,
             "roles": [
                 {
-                    "role": "Former Head of Finance",
+                    "role": "Head of Finance",
                     "team": "Finance",
-                    "lead": false
+                    "lead": true
                 }
             ]
         }
@@ -253,10 +248,10 @@
             "link": "https://www.linkedin.com/in/vrinda-raninga-959459249",
             "description": "I am a 3rd year student studying Chemical Engineering who has been a part of Bath Biodevices without Borders (and its iterations) since my first year. I have thoroughly enjoyed watching the team grow to what it is today and am excited for it to continue when I leave too. ",
             "image": "",
-            "startYear": 2022,
+            "startYear": 2021,
             "endYear": 2024,
             "legacy": false,
-            "isLegacy": true,
+            "isLegacy": false,
             "roles": [
                 {
                     "role": "Business Director",
@@ -277,8 +272,8 @@
             "course": "MEng Chemical Engineering",
             "link": "https://linkedin.com/in/alexa-mesham-715883265",
             "description": "I am a third year chemical engineering student and have been a member of the team since my second year. As a South African, this project is close to my heart and I have loved playing a part in its progress.",
-            "image": "https://computingservices-my.sharepoint.com/personal/jd2605_bath_ac_uk/Documents/Apps/Microsoft%20Forms/BWB%20survey%20for%20website/Question%201/amm305.png",
-            "startYear": 2022,
+            "image": "https://computingservices-my.sharepoint.com/personal/gm768_bath_ac_uk/Documents/Apps/Microsoft%20Forms/Website%20Content/Question/tempImageRZtcli_Alexa%20Mesham.jpg",
+            "startYear": 2021,
             "endYear": 2024,
             "legacy": false,
             "isLegacy": true,
@@ -297,7 +292,7 @@
             "course": "BSc(Hons) Biology with Professional Placement",
             "link": "https://www.linkedin.com/in/helena-woodvine/",
             "description": "Being a highly motivated and inquisitive individual I am hugely enjoying contributing towards Biodevices without Borders' applied learning project. Eager to pursue a Biotechnology-orientated career addressing UN STGs, aiding in the development and testing of electrochemical sensors for different water safety parameters is incredibly insightful. Further fuelling my interest in diagnostic lab-on-chip biosensing technology, I'm integrated across teams to have a comprehensive understanding of the processes involved to allow the development of these devices. ",
-            "image": "https://computingservices-my.sharepoint.com/personal/jd2605_bath_ac_uk/Documents/Apps/Microsoft%20Forms/BWB%20survey%20for%20website/Question%201/hw2435.png",
+            "image": "https://computingservices-my.sharepoint.com/personal/gm768_bath_ac_uk/Documents/Apps/Microsoft%20Forms/Website%20Content/Question/Blue%20walled%20BWB%20website_Helena%20Woodvine.jpg",
             "startYear": 2022,
             "endYear": 2024,
             "legacy": false,
@@ -324,8 +319,8 @@
             "course": "MEng Computer Systems Engineering",
             "link": "https://george-madeley-portfolio.co.uk/",
             "description": "As a passionate software developer, I delve into the realms of full-stack web development, machine learning, and game development. You\u2019ll often find me immersed in learning new programming languages, meticulously documenting code, or contributing to exciting new projects.",
-            "image": "https://computingservices-my.sharepoint.com/personal/jd2605_bath_ac_uk/Documents/Apps/Microsoft%20Forms/BWB%20survey%20for%20website/Question%201/gm768.png",
-            "startYear": 2022,
+            "image": "https://computingservices-my.sharepoint.com/personal/gm768_bath_ac_uk/Documents/Apps/Microsoft%20Forms/Website%20Content/Question/20230912_225706_George%20Madeley.jpg",
+            "startYear": 2021,
             "endYear": 2024,
             "legacy": true,
             "isLegacy": true,
@@ -341,9 +336,9 @@
                     "lead": false
                 },
                 {
-                    "role": "Former Head of Software",
+                    "role": "Head of Software",
                     "team": "Software",
-                    "lead": false
+                    "lead": true
                 }
             ]
         }
