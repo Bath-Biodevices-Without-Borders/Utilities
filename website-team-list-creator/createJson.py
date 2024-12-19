@@ -85,12 +85,12 @@ def renameImage(row):
         return
 
     oldImage = oldImage.split("/")[-1].replace("%20", " ")
-    oldImageExists = os.path.exists(f"./images/{oldImage}")
+    oldImageExists = os.path.exists(f"C:/Users/Jamie/Documents/GitHub/Utilities/repository/src/images/team_profiles/{oldImage}")
 
     email = row["Email"]
     username = email.split("@")[0]
     newImage = f"{username}.png"
-    newImageExists = os.path.exists(f"./images/{newImage}")
+    newImageExists = os.path.exists(f"C:/Users/Jamie/Documents/GitHub/Utilities/repository/src/images/team_profiles/{newImage}")
 
     if not oldImageExists and not newImageExists:
         # If neither the old image nor the new image exists, log the error but continue
@@ -100,7 +100,7 @@ def renameImage(row):
         row["Image"] = newImage
     else:
         # Resize the old image and save it with a new name
-        img = Image.open(f"./images/{oldImage}")
+        img = Image.open(f"C:/Users/Jamie/Documents/GitHub/Utilities/repository/src/images/team_profiles/{oldImage}")
 
         # Scale the image down
         max_dimension = 720
@@ -114,11 +114,11 @@ def renameImage(row):
         img = img.resize((new_width, new_height))
 
         # Save the image with the new name
-        img.save(f"./images/{newImage}", "PNG")
+        img.save(f"C:/Users/Jamie/Documents/GitHub/Utilities/repository/src/images/team_profiles/{newImage}", "PNG")
         # Update the image name in the row
         row["Image"] = newImage
         # Remove the old image file
-        os.remove(f"./images/{oldImage}")
+        os.remove(f"C:/Users/Jamie/Documents/GitHub/Utilities/repository/src/images/team_profiles/{oldImage}")
 
       
       
