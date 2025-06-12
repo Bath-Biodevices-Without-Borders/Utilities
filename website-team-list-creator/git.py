@@ -86,32 +86,39 @@ def moveDataToRepo() -> None:
 
 
 def gitPush() -> None:
-  """
-  Pushes the changes made in the local repository to the remote repository.
+    """
+    Pushes the changes made in the local repository to the remote repository.
+    Handles rejected pushes by pulling remote changes and retrying.
+    """
+    original_dir = os.getcwd()
+    try:
+        os.chdir("repository")
 
-  This function changes the directory to the repository, adds the changes to the repository,
-  commits the changes with a message, and pushes the changes to the remote repository.
+        # Add the changes to the repository
+        subprocess.run(["git", "add", "."], check=True)
 
-  Raises:
-    Exception: If an error occurs while pushing the changes.
+        # Check if there are changes to commit
+        result = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True, check=True)
+        if not result.stdout.strip():
+            print("Nothing to commit, working tree clean")
+        else:
+            # Commit the changes
+            subprocess.run(["git", "commit", "-m", "Updated team details"], check=True)
 
-  """
-  try:
-    # Change directory to the repository
-    os.chdir("repository")
-
-    # Add the changes to the repository
-    subprocess.run(["git", "add", "."])
-
-    # Commit the changes
-    subprocess.run(["git", "commit", "-m", "Updated team details"])
-
-    # Push the changes to the repository
-    subprocess.run(["git", "push"])
-
-    print("Changes pushed successfully")
-  except Exception as e:
-    print("Error occurred while pushing changes:", str(e))
+        # Push the changes to the repository
+        push = subprocess.run(["git", "push"], capture_output=True, text=True)
+        if push.returncode != 0 and "fetch first" in push.stderr:
+            print("Push rejected, attempting to pull and re-push...")
+            subprocess.run(["git", "pull", "--rebase"], check=True)
+            subprocess.run(["git", "push"], check=True)
+        elif push.returncode != 0:
+            print("Error occurred while pushing changes:", push.stderr)
+        else:
+            print("Changes pushed successfully")
+    except Exception as e:
+        print("Error occurred while pushing changes:", str(e))
+    finally:
+        os.chdir(original_dir)
 
 
 def deleteRepo() -> None:
@@ -128,6 +135,8 @@ def deleteRepo() -> None:
   os.chdir("..")
 
   # Remove the repository directory
-  os.system("rm -rf repository")
+  #os.system("rm -rf repository")
+  #windows version
+  shutil.rmtree("repository", ignore_errors=True)
 
   print("Repository deleted successfully")
