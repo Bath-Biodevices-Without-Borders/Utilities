@@ -18,42 +18,52 @@ def syncData(repository: str) -> None:
 
 
 def gitClone(repository: str) -> None:
-  print("Cloning the repository...")
+    print("Cloning the repository...")
 
-  # git clone the given repository
-  os.system(f"git clone {repository} repository")
+    # Remove the repository directory if it exists
+    if os.path.exists("repository"):
+        shutil.rmtree("repository", ignore_errors=True)
 
-  # Check if the repository was cloned successfully
-  if not os.path.exists("repository"):
-    print("Error: Repository not cloned successfully")
-    return
+    # git clone the given repository
+    result = subprocess.run(f"git clone {repository} repository", shell=True)
+    if result.returncode != 0:
+        print("Error: Repository not cloned successfully")
+        exit(1)
 
-  print("Repository cloned successfully")
+    # Check if the repository was cloned successfully and is a git repo
+    if not os.path.exists("repository/.git"):
+        print("Error: 'repository' is not a valid git repository")
+        exit(1)
+
+    print("Repository cloned successfully")
 
 
 def gitBranch(branchName: str) -> None:
-  """
-  Create and push a new branch to the remote repository.
+    """
+    Create and push a new branch to the remote repository if it doesn't exist.
+    If the branch exists remotely, check it out and pull the latest changes.
+    """
+    os.chdir("repository")
 
-  Params:
-    branchName (str): The name of the new branch.
+    # Fetch all branches
+    subprocess.run(["git", "fetch"], check=True)
 
-  Returns:
-    None
-  """
+    # Check if branch exists locally
+    branches = subprocess.run(["git", "branch"], capture_output=True, text=True)
+    if branchName not in branches.stdout:
+        # Check if branch exists remotely
+        remote_branches = subprocess.run(["git", "branch", "-r"], capture_output=True, text=True)
+        if f"origin/{branchName}" in remote_branches.stdout:
+            subprocess.run(["git", "checkout", branchName], check=True)
+            subprocess.run(["git", "pull", "origin", branchName], check=True)
+        else:
+            subprocess.run(["git", "checkout", "-b", branchName], check=True)
+            subprocess.run(["git", "push", "--set-upstream", "origin", branchName], check=True)
+    else:
+        subprocess.run(["git", "checkout", branchName], check=True)
+        subprocess.run(["git", "pull", "origin", branchName], check=True)
 
-  # Change directory to the repository
-  os.chdir("repository")
-
-  # Create a new branch
-  os.system(f"git checkout -b {branchName}")
-
-  # Push the branch to the origin
-  os.system(f"git push --set-upstream origin {branchName}")
-
-  # Change directory back to the original directory
-  os.chdir("..")
-
+    os.chdir("..")
 
 def moveDataToRepo() -> None:
   """

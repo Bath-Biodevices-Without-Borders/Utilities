@@ -50,6 +50,7 @@ def readJSON():
 
 def createJSON(excelFileName: str, prevMembers: dict = None):
     df = pd.read_excel(excelFileName)
+    
     df.fillna("", inplace=True)
 
     members, memberEmails = createMembersList(df)
@@ -63,63 +64,48 @@ def createMembersList(df):
     members = []
     memberEmails = []
     for index, row in df.iterrows():
-      renameImage(row)
-      member = createMember(row)
-      members.append(member)
-      email = member.get('email', '')
-      memberEmails.append(email)
+        renameImage(row)  # This will now not skip any member
+        try:
+            member = createMember(row)
+            members.append(member)
+            email = member.get('email', '')
+            memberEmails.append(email)
+        except Exception as e:
+            print(f"Error creating member for row {index}: {e}")
     return members, memberEmails
 
 def renameImage(row):
     """
     Renames the image file associated with a given row in the team list.
-
-    Args:
-      row (dict): A dictionary representing a row in the team list.
-
-    Returns:
-      None
+    If the image is missing or not found, sets a default image but does not skip the member.
     """
-    oldImage = row["Image"]
-    if oldImage == "":
+    oldImage = row.get("Image", "")
+    if not oldImage or str(oldImage).strip() == "":
+        # Set a default image if missing
+        row["Image"] = "https://example.com/default.jpg"
         return
 
-    oldImage = oldImage.split("/")[-1].replace("%20", " ")
-    oldImageExists = os.path.exists(f"C:/Users/Jamie/Documents/GitHub/Utilities/repository/src/images/team_profiles/{oldImage}")
+    oldImageName = oldImage.split("/")[-1].replace("%20", " ")
+    image_dir = "C:/Users/Jamie/Documents/GitHub/Utilities/repository/src/images/team_profiles/"
+    oldImagePath = os.path.join(image_dir, oldImageName)
 
-    email = row["Email"]
-    username = email.split("@")[0]
+    email = row.get("Email", "")
+    username = email.split("@")[0] if "@" in email else "unknown"
     newImage = f"{username}.png"
-    newImageExists = os.path.exists(f"C:/Users/Jamie/Documents/GitHub/Utilities/repository/src/images/team_profiles/{newImage}")
+    newImagePath = os.path.join(image_dir, newImage)
 
-    if not oldImageExists and not newImageExists:
-        # If neither the old image nor the new image exists, log the error but continue
-        print(f"Warning: Image {oldImage} does not exist for {row['Name']}. Skipping this member.")
-        return  # Skip the image renaming, no need to raise an error here.
-    elif newImageExists:
+    if os.path.exists(newImagePath):
         row["Image"] = newImage
+        return
+    elif os.path.exists(oldImagePath):
+        # Optionally, copy/rename the image to newImagePath if needed
+        row["Image"] = newImage
+        return
     else:
-        # Resize the old image and save it with a new name
-        img = Image.open(f"C:/Users/Jamie/Documents/GitHub/Utilities/repository/src/images/team_profiles/{oldImage}")
-
-        # Scale the image down
-        max_dimension = 720
-        width, height = img.size
-        if width > height:
-            new_width = max_dimension
-            new_height = int(height * (max_dimension / width))
-        else:
-            new_height = max_dimension
-            new_width = int(width * (max_dimension / height))
-        img = img.resize((new_width, new_height))
-
-        # Save the image with the new name
-        img.save(f"C:/Users/Jamie/Documents/GitHub/Utilities/repository/src/images/team_profiles/{newImage}", "PNG")
-        # Update the image name in the row
-        row["Image"] = newImage
-        # Remove the old image file
-        os.remove(f"C:/Users/Jamie/Documents/GitHub/Utilities/repository/src/images/team_profiles/{oldImage}")
-
+        # Set a default image if not found
+        print(f"Warning: Image {oldImageName} does not exist for {row.get('Name', '')}. Using default image.")
+        row["Image"] = "https://example.com/default.jpg"
+        return
       
       
 def createMember(row):
